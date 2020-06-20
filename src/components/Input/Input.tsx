@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { InputProps } from "./InputProps";
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ClearIcon from '@material-ui/icons/Clear';
+import { InputProps } from "./InputProps";
 import "./Input.scss";
 
 export const Input: FC<InputProps> = ({value, placeholder, onClick, onInput, onClear}) => (
@@ -18,6 +18,7 @@ export const Input: FC<InputProps> = ({value, placeholder, onClick, onInput, onC
       value.length > 0 &&
       <span 
         className="Input__clear"
+        data-testid="clear"
         onClick={onClear}>
         <ClearIcon
           fontSize="small"/>

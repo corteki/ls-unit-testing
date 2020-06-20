@@ -14,10 +14,13 @@ export const Select: FC<SelectProps> = ({options, placeholder}) => {
     inputValue: ''
   });
 
-  useOnClickOutside(ref, () => setState({
-    ...state,
-    isOpen: false
-  }))
+  useOnClickOutside(
+    ref,
+    () => setState({
+      ...state,
+      isOpen: false
+    })
+  );
 
   const handleClick = (e: MouseEvent<HTMLInputElement>) => {
     setState({
