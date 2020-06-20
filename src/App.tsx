@@ -1,36 +1,18 @@
 import React from 'react';
+import { Select } from './components';
+import { biscuits, kitties } from './fixtures';
 import './App.scss';
-import { Select } from './components/Select/Select';
-
-const biscuits = [
-  'Chocolat chips',
-  'Havermout koekjes',
-  'Brownies',
-  'Zandkoekjes',
-  'Tarteletjes',
-  'Cocoskoekjes'
-];
-
-const kitties = [
-  'Russian Blue',
-  'Ragdoll',
-  'Turtios cat',
-  'Black cat',
-  'Neblung',
-  'Norwegian Forest Cat',
-  'Ginger Tabby'
-]
 
 function App() {
   return (
     <div className="App">
       <section className="App__container">
         <Select
-          placeholder="choose a biscuit you like"
+          placeholder="Choose a biscuit you like"
           options={biscuits}
         />
         <Select
-          placeholder="choose a kitty to pet"
+          placeholder="Choose a kitty to pet"
           options={kitties}
         />
       </section>
