@@ -1,0 +1,25 @@
+.Input {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  &__field {
+    width: inherit;
+    padding: 8px;
+    margin: 0;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__clear {
+    position: absolute;
+    right: 32px;
+    height: 20px;
+    cursor: pointer;
+  }
+  &__open {
+    position: absolute;
+    right: 8px;
+  }
+}

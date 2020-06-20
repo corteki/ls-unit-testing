@@ -1,24 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Select } from './components/Select/Select';
+
+const biscuits = [
+  'Chocolat chips',
+  'Havermout koekjes',
+  'Brownies',
+  'Zandkoekjes',
+  'Tarteletjes',
+  'Cocoskoekjes'
+];
+
+const kitties = [
+  'Russian Blue',
+  'Ragdoll',
+  'Turtios cat',
+  'Black cat',
+  'Neblung',
+  'Norwegian Forest Cat',
+  'Ginger Tabby'
+]
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="App__container">
+        <Select
+          placeholder="choose a biscuit you like"
+          options={biscuits}
+        />
+        <Select
+          placeholder="choose a kitty to pet"
+          options={kitties}
+        />
+      </section>
     </div>
   );
 }

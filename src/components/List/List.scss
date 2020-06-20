@@ -1,0 +1,15 @@
+.List {
+  position: absolute;
+  z-index: 2;
+  top: 34px;
+  background-color: white;
+  width: 100%;
+  border: 1px solid black;
+  cursor: pointer;
+  &__option {
+    padding: 8px 16px;
+    &:hover {
+      background-color: #eefffe;
+    }
+  }
+}
