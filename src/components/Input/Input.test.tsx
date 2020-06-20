@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import { Input } from "./Input";
 
 describe('<Input/>', () => {
@@ -18,6 +19,21 @@ describe('<Input/>', () => {
         onClick={MockHandleClick}
       />
     );
+  });
+
+  it('should render a empty input field without a clear icon and with uudown arrow icon', () => {
+    const tree = renderer
+      .create(
+        <Input 
+          value="" 
+          placeholder="MockPlaceholder"
+          onInput={MockHandleInput}
+          onClear={MockHandleClear}
+          onClick={MockHandleClick}
+        />
+      ).toJSON();
+
+      expect(tree).toMatchSnapshot();
   });
 
   it('should render with a placeholder by default and render the value', () => {

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input/> should render a empty input field without a clear icon and with down arrow icon 1`] = `
+<div
+  className="Input"
+>
+  <input
+    className="Input__field"
+    onChange={[MockFunction]}
+    onClick={[MockFunction]}
+    placeholder="MockPlaceholder"
+    type="text"
+    value=""
+  />
+  <svg
+    aria-hidden={true}
+    className="MuiSvgIcon-root Input__open MuiSvgIcon-fontSizeSmall"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M7 10l5 5 5-5z"
+    />
+  </svg>
+</div>
+`;
