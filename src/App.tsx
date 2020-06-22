@@ -12,6 +12,7 @@ function App() {
           options={biscuits}
         />
         <Select
+          hasFilter={false}
           placeholder="Choose a kitty to pet"
           options={kitties}
         />

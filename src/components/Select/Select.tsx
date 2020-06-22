@@ -5,15 +5,16 @@ import { List } from "../List/List";
 import { SelectState } from "./SelectState";
 import { useOnClickOutside } from "./UseOnClickOutside";
 import "./Select.scss";
+import { withInputValueFilter } from "./withInputValueFilter";
 
-export const Select: FC<SelectProps> = ({options, placeholder}) => {
+export const Select: FC<SelectProps> = ({hasFilter = true, options, placeholder}) => {
   const ref = useRef<HTMLElement>(null);
 
   const [state, setState] = useState<SelectState>({
     isOpen: false,
     inputValue: ''
   });
-
+  
   useOnClickOutside(
     ref,
     () => setState({
@@ -52,9 +53,7 @@ export const Select: FC<SelectProps> = ({options, placeholder}) => {
     });
   }
 
-  const withInputValueFilter = (values: Array<string>): Array<string> => {
-    return values.filter(option => option.toLowerCase().includes(state.inputValue))
-  }
+  const FilterableList = withInputValueFilter(List)(options, state.inputValue)
 
   return (
     <article 
@@ -67,11 +66,17 @@ export const Select: FC<SelectProps> = ({options, placeholder}) => {
         onInput={handleInput}
         onClear={handleClear}
       />
-      <List 
-        isVisible={state.isOpen}
-        values={withInputValueFilter(options)}
-        onClick={handleSelect}
-      />
+      { hasFilter ?
+        <FilterableList 
+          isVisible={state.isOpen}
+          onClick={handleSelect}
+        /> :
+        <List
+          isVisible={state.isOpen}
+          values={options}
+          onClick={handleSelect}
+        />
+      }
     </article>
   );
 }
