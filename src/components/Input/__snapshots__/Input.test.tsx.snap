@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Input/> should render a empty input field without a clear icon and with down arrow icon 1`] = `
+exports[`<Input/> should render a empty input field without a clear icon and with uudown arrow icon 1`] = `
 <div
   className="Input"
 >

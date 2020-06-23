@@ -7,10 +7,12 @@ function App() {
   return (
     <div className="App">
       <section className="App__container">
+        <h1>With filter</h1>
         <Select
           placeholder="Choose a biscuit you like"
           options={biscuits}
         />
+        <h1>Without filter</h1>
         <Select
           hasFilter={false}
           placeholder="Choose a kitty to pet"

@@ -5,18 +5,18 @@ import { Input } from "./Input";
 
 describe('<Input/>', () => {
 
-  const MockHandleInput = jest.fn();
-  const MockHandleClear = jest.fn();
-  const MockHandleClick = jest.fn();
+  const MOCK_HANDLE_INPUT = jest.fn();
+  const MOCK_HANDLE_CLEAR = jest.fn();
+  const MOCK_HANDLE_CLICK = jest.fn();
 
   beforeEach(() => {
     render(
       <Input 
         value="MockValue" 
         placeholder="MockPlaceholder"
-        onInput={MockHandleInput}
-        onClear={MockHandleClear}
-        onClick={MockHandleClick}
+        onInput={MOCK_HANDLE_INPUT}
+        onClear={MOCK_HANDLE_CLEAR}
+        onClick={MOCK_HANDLE_CLICK}
       />
     );
   });
@@ -27,9 +27,9 @@ describe('<Input/>', () => {
         <Input 
           value="" 
           placeholder="MockPlaceholder"
-          onInput={MockHandleInput}
-          onClear={MockHandleClear}
-          onClick={MockHandleClick}
+          onInput={MOCK_HANDLE_INPUT}
+          onClear={MOCK_HANDLE_CLEAR}
+          onClick={MOCK_HANDLE_CLICK}
         />
       ).toJSON();
 
@@ -48,7 +48,7 @@ describe('<Input/>', () => {
     fireEvent.focus(input);
     fireEvent.change(input, mockEvent);
 
-    expect(MockHandleInput).toHaveBeenCalled();
+    expect(MOCK_HANDLE_INPUT).toHaveBeenCalled();
   });
 
   it('should call the onClear handler when the clear icon is clicked', () => {
@@ -56,7 +56,7 @@ describe('<Input/>', () => {
 
     fireEvent.click(clearIcon);
 
-    expect(MockHandleClear).toHaveBeenCalled();
+    expect(MOCK_HANDLE_CLEAR).toHaveBeenCalled();
   });
 
   it('should call the onClick handler when the input field is clicked', () => {
@@ -64,7 +64,7 @@ describe('<Input/>', () => {
 
     fireEvent.click(input);
 
-    expect(MockHandleClick).toHaveBeenCalled();
+    expect(MOCK_HANDLE_CLICK).toHaveBeenCalled();
   });
 
 });

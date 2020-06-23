@@ -3,9 +3,8 @@ import { SelectProps } from "./SelectProps";
 import { Input } from "../Input/Input";
 import { List } from "../List/List";
 import { SelectState } from "./SelectState";
-import { useOnClickOutside } from "./UseOnClickOutside";
+import { useOnClickOutside, withFilterableValues } from "../../core";
 import "./Select.scss";
-import { withInputValueFilter } from "./withInputValueFilter";
 
 export const Select: FC<SelectProps> = ({hasFilter = true, options, placeholder}) => {
   const ref = useRef<HTMLElement>(null);
@@ -53,7 +52,7 @@ export const Select: FC<SelectProps> = ({hasFilter = true, options, placeholder}
     });
   }
 
-  const FilterableList = withInputValueFilter(List)(options, state.inputValue)
+  const FilterableList = withFilterableValues(List)(options, state.inputValue)
 
   return (
     <article 
