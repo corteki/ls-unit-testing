@@ -1,56 +1,16 @@
-import React, { FC, MouseEvent, useState, useRef, ChangeEvent } from "react";
+import React, { FC, useRef } from "react";
 import { SelectProps } from "./SelectProps";
 import { Input } from "../Input/Input";
 import { List } from "../List/List";
-import { SelectState } from "./SelectState";
-import { useOnClickOutside, withFilterableValues } from "../../core";
+import { withFilterableValues, useSelectBehavior } from "../../core";
 import "./Select.scss";
 
 export const Select: FC<SelectProps> = ({hasFilter = true, options, placeholder}) => {
   const ref = useRef<HTMLElement>(null);
-
-  const [state, setState] = useState<SelectState>({
-    isOpen: false,
-    inputValue: ''
-  });
-  
-  useOnClickOutside(
-    ref,
-    () => setState({
-      ...state,
-      isOpen: false
-    })
-  );
-
-  const handleClick = (e: MouseEvent<HTMLInputElement>) => {
-    setState({
-      ...state,
-      inputValue: '',
-      isOpen: !state.isOpen
-    });
-  }
-
-  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setState({
-      ...state,
-      inputValue: e.currentTarget.value
-    });
-  }
-
-  const handleSelect = (e: MouseEvent<HTMLOptionElement>) => {
-    setState({
-      ...state,
-      isOpen: false,
-      inputValue: e.currentTarget.value
-    });
-  }
-
-  const handleClear = (e: MouseEvent<HTMLSpanElement>) => {
-    setState({
-      ...state,
-      inputValue: ''
-    });
-  }
+  const {
+    state, handleClear, handleClick, 
+    handleInput, handleSelect
+  } = useSelectBehavior(ref);
 
   const FilterableList = withFilterableValues(List)(options, state.inputValue)
 
