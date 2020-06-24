@@ -7,11 +7,7 @@ import "./Select.scss";
 
 export const Select: FC<SelectProps> = ({hasFilter = true, options, placeholder}) => {
   const ref = useRef<HTMLElement>(null);
-  const {
-    state, handleClear, handleClick, 
-    handleInput, handleSelect
-  } = useSelectBehavior(ref);
-
+  const { state, ...controller } = useSelectBehavior(ref);
   const FilterableList = withFilterableValues(List)(options, state.inputValue)
 
   return (
@@ -21,19 +17,19 @@ export const Select: FC<SelectProps> = ({hasFilter = true, options, placeholder}
       <Input 
         value={state.inputValue} 
         placeholder={placeholder}
-        onClick={handleClick}
-        onInput={handleInput}
-        onClear={handleClear}
+        onClick={controller.handleClick}
+        onInput={controller.handleInput}
+        onClear={controller.handleClear}
       />
       { hasFilter ?
         <FilterableList 
           isVisible={state.isOpen}
-          onClick={handleSelect}
+          onClick={controller.handleSelect}
         /> :
         <List
           isVisible={state.isOpen}
           values={options}
-          onClick={handleSelect}
+          onClick={controller.handleSelect}
         />
       }
     </article>
