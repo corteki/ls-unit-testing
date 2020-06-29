@@ -20,6 +20,6 @@ describe('UseOnClickOutside', () => {
     fireEvent.touchStart(document);
 
     expect(MOCK_HANDLER).toHaveBeenCalled();
-  })
+  });
   
 });

@@ -1,0 +1,22 @@
+{
+  "biscuits": [
+    "Chocolat chips",
+    "Havermout koekjes",
+    "Brownies",
+    "Zandkoekjes",
+    "Tarteletjes",
+    "Cocoskoekjes"
+  ],
+  "kitties": [
+    "Russian Blue",
+    "Ragdoll",
+    "Turtios cat",
+    "Black cat",
+    "Nebelung",
+    "Norwegian Forest Cat",
+    "Ginger Tabby"
+  ],
+  "users": [
+    {"id": 1, "firstName": "bob", "lastName": "martin", "age": 68}
+  ]
+}
