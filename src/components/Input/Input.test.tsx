@@ -21,7 +21,7 @@ describe('<Input/>', () => {
     );
   });
 
-  it('should render a empty input field without a clear icon and with uudown arrow icon', () => {
+  it('should render a empty input field without a clear icon and with a down arrow icon', () => {
     const tree = renderer
       .create(
         <Input 
