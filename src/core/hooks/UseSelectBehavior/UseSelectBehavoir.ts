@@ -14,7 +14,7 @@ export const useSelectBehavior = (ref: RefObject<HTMLElement>) => {
     isOpen: false
   });
 
-  useOnClickOutside(ref, handleClose);
+  useOnClickOutside(ref, handleClose, state.isOpen);
 
   const handleClick = (e: MouseEvent<HTMLInputElement>) => {
     setState({

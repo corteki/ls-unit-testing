@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ClearIcon from '@material-ui/icons/Clear';
 import { InputProps } from "./InputProps";
 import "./Input.scss";
 
-export const Input: FC<InputProps> = ({value, placeholder, onClick, onInput, onClear}) => (
+export const Input: FC<InputProps> = memo(({value, placeholder, onClick, onInput, onClear}) => (
   <div className="Input">
     <input
       className="Input__field"
@@ -28,4 +28,4 @@ export const Input: FC<InputProps> = ({value, placeholder, onClick, onInput, onC
       className="Input__open"
       fontSize="small"/>
   </div>
-);
+));

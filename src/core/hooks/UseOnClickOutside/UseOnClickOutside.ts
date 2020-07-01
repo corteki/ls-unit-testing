@@ -1,13 +1,13 @@
 import { useEffect, RefObject } from "react";
 
-export const useOnClickOutside = (ref: RefObject<HTMLElement>, handler: Function) => {
+export const useOnClickOutside = (ref: RefObject<HTMLElement>, handler: Function, isOpen: boolean) => {
   useEffect(
     () => {
       const listener = (event: Event) => {
         if (!ref.current || ref.current.contains(event.target as Node)) {
           return;
         }
-        return handler(event);
+        isOpen && handler(event);
       };
 
       document.addEventListener('mousedown', listener);
@@ -18,6 +18,6 @@ export const useOnClickOutside = (ref: RefObject<HTMLElement>, handler: Function
         document.removeEventListener('touchstart', listener);
       };
     },
-    [ref, handler]
+    [ref, handler, isOpen]
   );
 }

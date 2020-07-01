@@ -10,7 +10,7 @@ describe('UseOnClickOutside', () => {
     jest.spyOn(MOCK_REF.current, 'contains').mockImplementation(() => false);
 
     renderHook(() => {
-      useOnClickOutside(MOCK_REF, MOCK_HANDLER)
+      useOnClickOutside(MOCK_REF, MOCK_HANDLER, true)
     });
 
     fireEvent.mouseDown(document);
