@@ -17,6 +17,11 @@
     "Ginger Tabby"
   ],
   "users": [
-    {"id": 1, "firstName": "bob", "lastName": "martin", "age": 68}
+    {"id": 1, "firstName": "Peter", "lastName": "Handke", "age": 77},
+    {"id": 2, "firstName": "Abiy", "lastName": "Ahmed", "age": 68},
+    {"id": 3, "firstName": "Akira", "lastName": "Yoshino", "age": 72},
+    {"id": 4, "firstName": "M. Stanley", "lastName": "Whittingham", "age": 68},
+    {"id": 5, "firstName": "John B.", "lastName": "Goodenough", "age": 68},
+    {"id": 6, "firstName": "James", "lastName": "Peebles", "age": 68}
   ]
 }
