@@ -25,7 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "mock-server": "json-server --watch ./src/fixtures/db.json",
+    "mock-server": "json-server --watch ./src/fixtures/db.json --delay=500",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

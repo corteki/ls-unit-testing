@@ -1,6 +1,5 @@
 import { createSlice, Dispatch } from "@reduxjs/toolkit";
 import { initialState } from "./InitialState";
-import { RootState } from "../RootState";
 import { UserService } from "../../services/user-service/UserService";
 
 export const usersSlice = createSlice({
@@ -23,9 +22,10 @@ export const usersSlice = createSlice({
   }
 });
 
+const userService = new UserService();
+
 export function getUsers() {
   const {fetchUsers, fetchingUsersFailed, fetchingUsersSucceeded} = usersSlice.actions;
-  const userService = new UserService();
   return async (dispatch: Dispatch) => {
     dispatch(fetchUsers())
     try {
