@@ -5,10 +5,17 @@ import { Input } from "./Input";
 
 describe('<Input/>', () => {
 
+  /**
+   * [1] mocking event handlers
+   */
   const MOCK_HANDLE_INPUT = jest.fn();
   const MOCK_HANDLE_CLEAR = jest.fn();
   const MOCK_HANDLE_CLICK = jest.fn();
 
+  /**
+   * [2] instance is available via "screen",
+   * cleanup is done for us after each test
+   */
   beforeEach(() => {
     render(
       <Input 
@@ -21,7 +28,10 @@ describe('<Input/>', () => {
     );
   });
 
-  it('should render a empty input field without a clear icon and with a down arrow icon', () => {
+  /**
+   * [3] verifying the default output of a input field
+   */
+  it('should render an empty input field without a clear icon and with a down arrow icon', () => {
     const tree = renderer
       .create(
         <Input 
@@ -35,8 +45,14 @@ describe('<Input/>', () => {
       expect(tree).toMatchSnapshot();
   });
 
+  /**
+   * [4] '@testing-library/react' allows to avoid testing implementation details
+   */
   it('should render with a placeholder by default and render the value', () => {
     const input = screen.getByPlaceholderText(/MockPlaceholder/i);
+    /**
+     * [5] example of type specific matcher
+     */
     expect(input).toHaveValue('MockValue');
   });
 
