@@ -28,6 +28,9 @@
     "mock-server": "json-server --watch ./src/fixtures/db.json --delay=500",
     "eject": "react-scripts eject"
   },
+  "pre-commit": [
+    "test"
+  ],
   "eslintConfig": {
     "extends": "react-app"
   },

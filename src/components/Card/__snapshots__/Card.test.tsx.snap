@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card/> should display a Card with a title, body, footer and addionally some children 1`] = `
+<article>
+  <h2>
+    mock-title
+  </h2>
+  <div>
+    <p>
+      mock-body
+    </p>
+    <small>
+      mock-footer
+    </small>
+    <p>
+      child
+    </p>
+  </div>
+</article>
+`;

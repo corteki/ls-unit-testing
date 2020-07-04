@@ -1,2 +1,1 @@
-export { kitties } from './kitties';
-export { biscuits } from './biscuits';
+export { MOCK_USERS } from './MockUsers';

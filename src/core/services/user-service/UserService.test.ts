@@ -1,12 +1,11 @@
 import { UserService } from "./UserService";
-import axios from "axios";
-import { User } from "../../models/User";
+import { Http } from "../http/Http";
+import { MOCK_USERS } from "../../../fixtures";
 
 describe('UserService', () => {
 
   beforeAll(() => {
-    const users: Array<User> = [{id: 1, firstName: 'bob', lastName: 'martin', age: 68}];
-    (axios as jest.Mocked<typeof axios>).get.mockResolvedValue({ data: users });
+    (Http as jest.Mocked<typeof Http>).get.mockResolvedValue({ data: MOCK_USERS });
   });
 
   it('should get all users', async () => {
@@ -15,7 +14,7 @@ describe('UserService', () => {
     const { data } = await userService.getAll();
 
     expect(data).toEqual([{id: 1, firstName: 'bob', lastName: 'martin', age: 68}]);
-    expect(axios.get).toHaveBeenCalledWith('http://localhost:3000/users')
+    expect(Http.get).toHaveBeenCalledWith('/users')
   });
 
 });

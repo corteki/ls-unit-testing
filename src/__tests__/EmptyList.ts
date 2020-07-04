@@ -18,6 +18,6 @@ describe('<EmptyList/>', () => {
     setTimeout(done, 100)
   });
   it('should return a promise to end the test', () =>
-    new Promise(resolve => setTimeout(resolve, 100))
+    new Promise(resolve => setTimeout(resolve, 100));
   );
 });

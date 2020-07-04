@@ -10,4 +10,4 @@ export const Card: FC<CardProps> = ({title, body, footer, children}) => (
       {children}
     </div>
   </article>
-)
+);
