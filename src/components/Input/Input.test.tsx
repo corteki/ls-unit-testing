@@ -32,7 +32,6 @@ describe('<Input/>', () => {
           onClick={MOCK_HANDLE_CLICK}
         />
       ).toJSON();
-
       expect(tree).toMatchSnapshot();
   });
 

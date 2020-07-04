@@ -1,6 +1,5 @@
 import React from 'react';
 import { Select, Users } from './components';
-import { biscuits, kitties } from './fixtures';
 import './App.scss';
 
 function App() {
@@ -10,13 +9,13 @@ function App() {
       <h1>With filter</h1>
         <Select
           placeholder="Choose a biscuit you like"
-          options={biscuits}
+          options={['a', 'b']}
         />
         <h1>Without filter</h1>
         <Select
           hasFilter={false}
           placeholder="Choose a kitty to pet"
-          options={kitties}
+          options={['c', 'd']}
         />
         <Users/>
       </section>

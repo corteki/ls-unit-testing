@@ -25,12 +25,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "pre-commit-test": "CI=true react-scripts test --watchAll",
     "mock-server": "json-server --watch ./src/fixtures/db.json --delay=500",
     "eject": "react-scripts eject"
   },
-  "pre-commit": [
-    "test"
-  ],
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -51,6 +49,7 @@
     "@types/react-test-renderer": "^16.9.2",
     "json-server": "^0.16.1",
     "node-sass": "^4.14.1",
+    "pre-commit": "^1.2.2",
     "react-test-renderer": "^16.13.1"
   }
 }
