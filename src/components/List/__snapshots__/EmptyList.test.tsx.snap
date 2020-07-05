@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EmptyList/> should render a single option that displays the message "No results" 1`] = `
+<div
+  className="List"
+>
+  <option
+    className="List__option"
+  >
+    No results
+  </option>
+</div>
+`;

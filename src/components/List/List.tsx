@@ -12,6 +12,7 @@ export const List: FC<ListProps> = ({values, onClick}) => {
       {values.map(value =>
         <option
           key={value}
+          data-testid="option"
           className="List__option" 
           onClick={onClick}
         >
