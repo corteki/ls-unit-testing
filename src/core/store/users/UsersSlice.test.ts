@@ -1,12 +1,17 @@
-import { usersSlice } from "./UsersSlice";
+import configureMockStore from "redux-mock-store";
+import thunk from 'redux-thunk';
+import { usersSlice, getUsers } from "./UsersSlice";
 import { initialState } from "./InitialState";
 import { MOCK_USERS } from "../../../fixtures";
+import { Http } from "../../services/http/Http";
 
 describe('UsersSlice', () => {
 
-  const {reducer, actions} = usersSlice;
+  const { reducer, actions } = usersSlice;
   const MOCK_EMPTY_ACTION = {type: 'EMPTY_ACTION'};
   const MOCK_ERROR_MESSAGE = 'Something went wrong while fetching the users';
+  const MOCK_ERROR = new Error(MOCK_ERROR_MESSAGE);
+  const MOCK_STORE = configureMockStore([thunk]);
 
   it('should return the initialState by default', () => {
     const state = reducer(undefined, MOCK_EMPTY_ACTION);
@@ -40,5 +45,31 @@ describe('UsersSlice', () => {
     expect(isLoading).toBeFalsy();
     expect(hasError).toBeTruthy();
     expect(errorMessage).toEqual(MOCK_ERROR_MESSAGE);
+  });
+
+  it('should call the fetchUsers and fetchingUsersSucceeded actions when getUsers is successful', async () => {
+    const { fetchUsers, fetchingUsersSucceeded } = actions;
+
+    const store = MOCK_STORE(initialState);
+
+    (Http as jest.Mocked<typeof Http>).get.mockResolvedValue({ data: MOCK_USERS });
+    const expectedActions = [fetchUsers(), fetchingUsersSucceeded(MOCK_USERS)];
+
+    await store.dispatch<any>(getUsers());
+
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should call the fetchUsers and fetchingUsersFailed actions when getUsers is unsuccessful', async () => {
+    const { fetchUsers, fetchingUsersFailed } = actions;
+
+    const store = MOCK_STORE(initialState);
+
+    (Http as jest.Mocked<typeof Http>).get.mockRejectedValue(MOCK_ERROR);
+    const expectedActions = [fetchUsers(), fetchingUsersFailed(MOCK_ERROR_MESSAGE)];
+
+    await store.dispatch<any>(getUsers());
+
+    expect(store.getActions()).toEqual(expectedActions);
   });
 });
