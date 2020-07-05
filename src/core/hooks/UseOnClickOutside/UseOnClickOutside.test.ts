@@ -6,11 +6,12 @@ import { MOCK_REF, MOCK_HANDLER, MOCK_EVENT } from './fixtures';
 describe('UseOnClickOutside', () => {
 
   it('should call the handler when a mousedown or touchstart event is fired', () => {
+    const IS_OPEN = true;
     jest.spyOn(document, 'addEventListener').mockImplementation((type: string, listener: any) => listener(MOCK_EVENT));
     jest.spyOn(MOCK_REF.current, 'contains').mockImplementation(() => false);
 
     renderHook(() => {
-      useOnClickOutside(MOCK_REF, MOCK_HANDLER, true)
+      useOnClickOutside(MOCK_REF, MOCK_HANDLER, IS_OPEN)
     });
 
     fireEvent.mouseDown(document);
