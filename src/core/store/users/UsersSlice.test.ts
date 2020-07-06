@@ -1,17 +1,12 @@
-import configureMockStore from "redux-mock-store";
-import thunk from 'redux-thunk';
 import { usersSlice, getUsers } from "./UsersSlice";
 import { initialState } from "./InitialState";
 import { MOCK_USERS } from "../../../fixtures";
 import { Http } from "../../services/http/Http";
+import { MOCK_EMPTY_ACTION, MOCK_ERROR_MESSAGE, MOCK_STORE, MOCK_ERROR } from "./fixtures";
 
 describe('UsersSlice', () => {
 
   const { reducer, actions } = usersSlice;
-  const MOCK_EMPTY_ACTION = {type: 'EMPTY_ACTION'};
-  const MOCK_ERROR_MESSAGE = 'Something went wrong while fetching the users';
-  const MOCK_ERROR = new Error(MOCK_ERROR_MESSAGE);
-  const MOCK_STORE = configureMockStore([thunk]);
 
   describe('reducer', () => {
 

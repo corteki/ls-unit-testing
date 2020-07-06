@@ -13,8 +13,8 @@ describe('UserService', () => {
 
     const { data } = await userService.getAll();
 
-    expect(data).toEqual([{id: 1, firstName: 'bob', lastName: 'martin', age: 68}]);
-    expect(Http.get).toHaveBeenCalledWith('/users')
+    expect(data).toEqual(MOCK_USERS);
+    expect(Http.get).toHaveBeenCalledWith('/users');
   });
 
 });

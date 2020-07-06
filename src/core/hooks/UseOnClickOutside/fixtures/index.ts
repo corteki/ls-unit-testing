@@ -1,5 +1,6 @@
 import { createRef } from "react";
 
+export const MOCK_IS_OPEN = true;
 export const MOCK_EVENT = {
   target: 'MOCK_TARGET'
 };

@@ -3,14 +3,14 @@
 exports[`<Card/> should display a Card with a title, body, footer and addionally some children 1`] = `
 <article>
   <h2>
-    mock-title
+    MockTitle
   </h2>
   <div>
     <p>
-      mock-body
+      MockBody
     </p>
     <small>
-      mock-footer
+      MockFooter
     </small>
     <p>
       child

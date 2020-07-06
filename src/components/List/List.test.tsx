@@ -1,16 +1,14 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { List } from "./List";
+import { MOCK_VALUES, MOCK_HANDLE_CLICK, MOCK_EMPTY_VALUES } from './fixtures';
 
 describe('<List/>', () => {
-
-  const MOCK_VALUES = ['mock-1', 'mock-2'];
-  const MOCK_HANDLE_CLICK = jest.fn();
 
   beforeEach(() => render(<List values={MOCK_VALUES} onClick={MOCK_HANDLE_CLICK}/>));
 
   it('should render an empty list with the "No results" message when there are no values provided', () => {
-    const {getByText} = render(<List values={[]} onClick={MOCK_HANDLE_CLICK}/>);
+    const { getByText } = render(<List values={MOCK_EMPTY_VALUES} onClick={MOCK_HANDLE_CLICK}/>);
 
     const emptyList = getByText(/No result/);
 
